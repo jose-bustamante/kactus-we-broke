@@ -23,9 +23,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
+      - name: Generate Time-Based Tag
+        id: time_tag
+        run: echo "time_tag=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
       - name: Build and Push Docker Image to GHCR
         uses: docker/build-push-action@v3
         with:
           context: ./we-broke/
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ env.TIME_TAG }}
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ steps.time_tag.outputs.time_tag }}
