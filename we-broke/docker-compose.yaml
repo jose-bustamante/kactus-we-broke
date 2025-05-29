@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  we-broke-app:
-    image: ghcr.io/jose-bustamante/kactus-we-broke:20250529-182301
+  nextjs:
+    image: ghcr.io/jose-bustamante/kactus-we-broke:latest
     restart: unless-stopped
     networks:
       - nginx-network
