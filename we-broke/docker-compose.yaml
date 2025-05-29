@@ -1,6 +1,6 @@
 services:
   nextjs:
-    image: ghcr.io/jose-bustamante/kactus-we-broke:20250529-225605
+    image: ghcr.io/jose-bustamante/kactus-we-broke:20250529-230642
     restart: unless-stopped
     networks:
       - nginx-network
