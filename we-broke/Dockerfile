@@ -6,7 +6,7 @@ FROM --platform=linux/arm/v7 node:18-alpine AS builder
 WORKDIR /app
 
 # No need for ARG if hardcoding
-ENV NEXT_FORCE_SWCPPURE=true
+# ENV NEXT_FORCE_SWCPPURE=true
 
 # Install dependencies
 COPY package*.json ./
@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Run build with explicit env var
-RUN NEXT_FORCE_SWCPPURE=true npm run build
+RUN npm run build
 
 ### Step 2: Lightweight production image
 FROM --platform=linux/arm/v7 node:18-alpine AS runner
