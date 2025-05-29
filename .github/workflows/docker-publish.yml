@@ -66,7 +66,9 @@ jobs:
           host: ${{ secrets.RPI_HOST }}
           username: ${{ secrets.RPI_USER }}
           key: ${{ secrets.RASPBERRY_PI_SSH_KEY }}
+          port: 2222
           script: |
-            cd /kactus-we-broke/we-broke
+            cd ~/kactus-we-broke/we-broke
+            docker compose down || true
             docker compose pull
             docker compose up -d
