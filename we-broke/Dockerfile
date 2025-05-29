@@ -5,6 +5,11 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+ENV NEXT_FORCE_SWCPPURE=true
+
+# ARG NEXT_FORCE_SWCPPURE
+# ENV NEXT_FORCE_SWCPPURE=${NEXT_FORCE_SWCPPURE}
+
 # Install dependencies
 COPY package*.json ./
 RUN npm install
@@ -17,8 +22,6 @@ RUN npm run build
 FROM node:18-alpine AS runner
 
 WORKDIR /app
-
-ENV NEXT_FORCE_SWCPPURE=true
 
 ENV NODE_ENV=production
 
