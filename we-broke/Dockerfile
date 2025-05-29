@@ -18,6 +18,8 @@ FROM node:18-alpine AS runner
 
 WORKDIR /app
 
+ENV NEXT_FORCE_SWCPPURE=true
+
 ENV NODE_ENV=production
 
 # Copy app output from builder
