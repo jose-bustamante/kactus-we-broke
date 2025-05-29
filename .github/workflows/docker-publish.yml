@@ -57,7 +57,7 @@ jobs:
   deploy:
     needs: build-and-publish
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'  # manual trigger only
+    if: success()
 
     steps:
       - name: Deploy to Raspberry Pi via SSH
