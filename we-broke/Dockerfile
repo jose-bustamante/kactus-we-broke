@@ -23,6 +23,10 @@ WORKDIR /app
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 
+# Set ARM architecture config
+ENV npm_config_arch=arm
+
+
 # Copy only the necessary output from the builder
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
