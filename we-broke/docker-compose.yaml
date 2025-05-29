@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  we-broke-app:
+    image: ghcr.io/jose-bustamante/kactus-we-broke:20250529-182301
+    restart: unless-stopped
+    networks:
+      - nginx-network
+    ports:
+      - "3000:3000"   # map container port 3000 to host port 3000
+    environment:
+      NODE_ENV: production
+
+networks:
+  nginx-network:
+    external: true
