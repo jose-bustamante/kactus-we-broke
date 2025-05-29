@@ -6,7 +6,7 @@ FROM --platform=linux/arm/v7 node:18-alpine AS builder
 WORKDIR /app
 
 ARG NEXT_FORCE_SWCPPURE
-ENV NEXT_FORCE_SWCPPURE=${NEXT_FORCE_SWCPPURE}
+ENV NEXT_FORCE_SWCPPURE=true
 
 # Install dependencies
 COPY package*.json ./
