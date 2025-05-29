@@ -34,4 +34,6 @@ jobs:
           push: true
           platforms: linux/arm/v7
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ steps.time_tag.outputs.time_tag }}
+          build-args: |
+            NEXT_FORCE_SWCPPURE=true
           provenance: false  # helps avoid manifest mismatches
