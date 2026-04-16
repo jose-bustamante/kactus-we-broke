@@ -19,7 +19,7 @@ COPY . .
 RUN npm run build
 
 ### Step 2: Lightweight production image
-FROM --platform=linux/arm/v7 node:18-alpine AS runner
+FROM --platform=linux/arm/v7 node:20-alpine AS runner
 
 WORKDIR /app
 
