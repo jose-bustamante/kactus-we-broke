@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 ### Step 1: Build the Next.js app
-FROM --platform=linux/arm/v7 node:18-alpine AS builder
+FROM --platform=linux/arm/v7 node:20-alpine AS builder
 
 WORKDIR /app
 
